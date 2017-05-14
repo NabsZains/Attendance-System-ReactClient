@@ -1,21 +1,15 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+// in src/App.js
+import React from 'react';
+import { jsonServerRestClient, Admin, Resource } from 'admin-on-rest';
+import { Delete } from 'admin-on-rest';
+import authClient from './authClient';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
-}
+import { UserList, UserEdit , UserCreate } from './users';
+
+const App = () => (
+    <Admin authClient={authClient} restClient={jsonServerRestClient('http://127.0.0.1:9990')}>
+        <Resource name="users" list={UserList} edit={UserEdit} create={UserCreate} remove={Delete}/>
+    </Admin>
+);
 
 export default App;

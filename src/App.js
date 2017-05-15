@@ -9,17 +9,15 @@ import { Dashboard } from './dashboard';
 import { UserList, UserEdit , UserCreate } from './users';
 import { BranchList, BranchEdit , BranchCreate } from './branches';
 import { TrackList, TrackEdit , TrackCreate } from './tracks';
+import { ScheduleList } from './schedules';
 
-import UserIcon from 'material-ui/svg-icons/social/group';
-import BranchIcon from 'material-ui/svg-icons/maps/add-location';
-import TrackIcon from 'material-ui/svg-icons/action/book';
+import Menu from './Menu';
 
 const httpClient = (url, options = {}) => {
     if (!options.headers) {
         options.headers = new Headers({ Accept: 'application/json' });
     }
     const token = localStorage.getItem('token');
-    console.log(token);
     options.headers.set('Authorization', `Bearer ${token}`);
     return fetchUtils.fetchJson(url, options);
 };
@@ -33,10 +31,12 @@ const App = () => (
         authClient={authClient}
         restClient={restClient}
         dashboard={Dashboard}
+        menu={Menu}
     >
-        <Resource name="users" list={UserList} edit={UserEdit} create={UserCreate} remove={Delete} icon={UserIcon}/>
-        <Resource name="branches" list={BranchList} edit={BranchEdit} create={BranchCreate} remove={Delete} icon={BranchIcon}/>
-        <Resource name="tracks" list={TrackList} edit={TrackEdit} create={TrackCreate} remove={Delete} icon={TrackIcon}/>
+        <Resource name="users" list={UserList} edit={UserEdit} create={UserCreate} remove={Delete}/>
+        <Resource name="branches" list={BranchList} edit={BranchEdit} create={BranchCreate} remove={Delete}/>
+        <Resource name="tracks" list={TrackList} edit={TrackEdit} create={TrackCreate} remove={Delete}/>
+        <Resource name="schedules" list={ScheduleList}/>
     </Admin>
 );
 

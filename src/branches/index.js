@@ -1,10 +1,12 @@
 import React from 'react';
 import { List, Edit, Create, Datagrid, ReferenceField, EmailField,BooleanInput, TextField, EditButton, DisabledInput, LongTextInput, ReferenceInput, SelectInput, SimpleForm, TextInput } from 'admin-on-rest';
 
+import Icon from 'material-ui/svg-icons/maps/add-location';
+export const BranchIcon = Icon;
+
 export const BranchList = (props) => (
     <List title="All branches" {...props}>
         <Datagrid>
-            <TextField source="id" />
             <TextField source="name" />
             <TextField source="address" />
             <EditButton />

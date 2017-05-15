@@ -1,6 +1,9 @@
 import React from 'react';
 import { List, Edit, Create, Datagrid, ReferenceField, EmailField,BooleanInput, TextField, EditButton, DisabledInput, LongTextInput, ReferenceInput, SelectInput, SimpleForm, TextInput } from 'admin-on-rest';
 
+import Icon from 'material-ui/svg-icons/social/group';
+export const UserIcon = Icon;
+
 export const UserList = (props) => (
     <List title="All users" {...props}>
         <Datagrid>

@@ -22,6 +22,7 @@ export const UserCreate = (props) => (
     <Create {...props}>
         <SimpleForm>
             <TextInput source="name" />
+            <TextInput source="username" />
             <LongTextInput source="email" />
             <TextInput source="password" type="password"/>
             <ReferenceInput label="Track" source="track_id" reference="tracks" allowEmpty>
@@ -37,6 +38,7 @@ export const UserEdit = (props) => (
         <SimpleForm>
             <DisabledInput source="id" />
             <TextInput source="name" />
+            <TextInput source="username" />
             <LongTextInput source="email" />
             <TextInput source="password" type="password"/>
             <ReferenceInput label="Track" source="track_id" reference="tracks" allowEmpty>

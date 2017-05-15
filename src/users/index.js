@@ -7,6 +7,9 @@ export const UserList = (props) => (
             <TextField source="id" />
             <TextField source="name" />
             <EmailField source="email" />
+            <ReferenceField label="Track" source="track_id" reference="tracks">
+                <TextField source="name" />
+            </ReferenceField>
             <EditButton />
         </Datagrid>
     </List>
@@ -22,6 +25,9 @@ export const UserCreate = (props) => (
             <TextInput source="name" />
             <LongTextInput source="email" />
             <TextInput source="password" type="password"/>
+            <ReferenceInput label="Track" source="track_id" reference="tracks" allowEmpty>
+                <SelectInput optionText="name" />
+            </ReferenceInput>
             <BooleanInput label="Is Admin?" source="is_admin" />
         </SimpleForm>
     </Create>
@@ -34,6 +40,9 @@ export const UserEdit = (props) => (
             <TextInput source="name" />
             <LongTextInput source="email" />
             <TextInput source="password" type="password"/>
+            <ReferenceInput label="Track" source="track_id" reference="tracks" allowEmpty>
+                <SelectInput optionText="name" />
+            </ReferenceInput>
             <BooleanInput label="Is Admin?" source="is_admin" />
         </SimpleForm>
     </Edit>

@@ -1,6 +1,6 @@
 // in src/App.js
 import React from 'react';
-import { jsonServerRestClient, Admin, Resource } from 'admin-on-rest';
+import { simpleRestClient, jsonServerRestClient, Admin, Resource, fetchUtils } from 'admin-on-rest';
 import { Delete } from 'admin-on-rest';
 import authClient from './authClient';
 
@@ -8,8 +8,22 @@ import { UserList, UserEdit , UserCreate } from './users';
 import { BranchList, BranchEdit , BranchCreate } from './branches';
 import { TrackList, TrackEdit , TrackCreate } from './tracks';
 
+
+const httpClient = (url, options = {}) => {
+    if (!options.headers) {
+        options.headers = new Headers({ Accept: 'application/json' });
+    }
+    const token = localStorage.getItem('token');
+    console.log(token);
+    options.headers.set('Authorization', `Bearer ${token}`);
+    return fetchUtils.fetchJson(url, options);
+};
+
+const restClient = jsonServerRestClient('http://127.0.0.1:9991/api', httpClient);
+
+
 const App = () => (
-    <Admin authClient={authClient} restClient={jsonServerRestClient('http://127.0.0.1:9990/api')}>
+    <Admin authClient={authClient} restClient={restClient}>
         <Resource name="users" list={UserList} edit={UserEdit} create={UserCreate} remove={Delete}/>
         <Resource name="branches" list={BranchList} edit={BranchEdit} create={BranchCreate} remove={Delete}/>
         <Resource name="tracks" list={TrackList} edit={TrackEdit} create={TrackCreate} remove={Delete}/>

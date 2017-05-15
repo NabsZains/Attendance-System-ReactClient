@@ -4,7 +4,6 @@ import { List, Edit, Create, Datagrid, ReferenceField, EmailField,BooleanInput, 
 export const UserList = (props) => (
     <List title="All users" {...props}>
         <Datagrid>
-            <TextField source="id" />
             <TextField source="name" />
             <EmailField source="email" />
             <EditButton />

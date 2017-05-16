@@ -5,7 +5,7 @@ import { Delete } from 'admin-on-rest';
 
 import authClient from './authClient';
 import { Dashboard } from './dashboard';
-
+import { RoleList, RoleEdit , RoleCreate } from './roles';
 import { UserList, UserEdit , UserCreate } from './users';
 import { BranchList, BranchEdit , BranchCreate } from './branches';
 import { TrackList, TrackEdit , TrackCreate } from './tracks';
@@ -37,6 +37,7 @@ const App = () => (
         <Resource name="branches" list={BranchList} edit={BranchEdit} create={BranchCreate} remove={Delete}/>
         <Resource name="tracks" list={TrackList} edit={TrackEdit} create={TrackCreate} remove={Delete}/>
         <Resource name="schedules" list={ScheduleList}/>
+        <Resource name="roles" list={RoleList} edit={RoleEdit} create={RoleCreate} remove={Delete}/>
     </Admin>
 );
 

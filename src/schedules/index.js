@@ -17,20 +17,20 @@ import {
     SelectInput,
     SimpleForm,
     TextInput } from 'admin-on-rest';
-import TimeInput from '../inputs/TimeInput';
 
 export const ScheduleList = (props) => (
     <List title="Tracks Schedules" {...props}>
         <Datagrid>
-            <DateField source="start_time" />
-            <DateField source="end_time" />
+            <TextField source="day_date" />
+            <TextField source="start_time" />
+            <TextField source="end_time" />
             <EditButton />
         </Datagrid>
     </List>
 );
 
 const ScheduleTitle = ({ record }) => {
-    return <span>Schedule {record ? `"${record.id}"` : ''}</span>;
+    return <span>Schedule {record ? `"${record.start_time}"` : ''}</span>;
 };
 
 const time_ranges = [
@@ -53,4 +53,18 @@ export const ScheduleCreate = (props) => (
             <SelectInput source="end_time" choices={time_ranges}/>
         </SimpleForm>
     </Create>
+);
+
+export const ScheduleEdit = (props) => (
+    <Edit title={<ScheduleTitle />} {...props}>
+        <SimpleForm>
+            <DisabledInput source="id" />
+            <ReferenceInput label="Track" source="track_id" reference="tracks" allowEmpty>
+                <SelectInput optionText={( record ) => record.name + ' (' + record.branch.name + ')'} />
+            </ReferenceInput>
+            <DateInput source="day_date" />
+            <SelectInput source="start_time" choices={time_ranges}/>
+            <SelectInput source="end_time" choices={time_ranges}/>
+        </SimpleForm>
+    </Edit>
 );

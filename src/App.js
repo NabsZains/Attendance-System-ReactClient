@@ -9,7 +9,7 @@ import { Dashboard } from './dashboard';
 import { UserList, UserEdit , UserCreate } from './users';
 import { BranchList, BranchEdit , BranchCreate } from './branches';
 import { TrackList, TrackEdit , TrackCreate } from './tracks';
-import { ScheduleList, ScheduleCreate } from './schedules';
+import { ScheduleList, ScheduleCreate, ScheduleEdit } from './schedules';
 
 import Menu from './Menu';
 
@@ -36,7 +36,7 @@ const App = () => (
         <Resource name="users" list={UserList} edit={UserEdit} create={UserCreate} remove={Delete}/>
         <Resource name="branches" list={BranchList} edit={BranchEdit} create={BranchCreate} remove={Delete}/>
         <Resource name="tracks" list={TrackList} edit={TrackEdit} create={TrackCreate} remove={Delete}/>
-        <Resource name="schedules" list={ScheduleList} create={ScheduleCreate}/>
+        <Resource name="schedules" list={ScheduleList} create={ScheduleCreate} edit={ScheduleEdit} remove={Delete}/>
     </Admin>
 );
 

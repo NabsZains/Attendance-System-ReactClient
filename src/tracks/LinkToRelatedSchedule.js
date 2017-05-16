@@ -13,7 +13,7 @@ const LinkToRelatedSchedule = ({ record }) => (
         icon={<ScheduleIcon />}
         containerElement={<Link to={{
             pathname: '/schedules',
-            search: stringify({ filter: JSON.stringify({ category_id: 1 }) }),
+            search: stringify({ filter: JSON.stringify({ track_id: record.id }) }),
         }} />}
     />
 );

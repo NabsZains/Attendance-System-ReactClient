@@ -12,11 +12,13 @@ import { translate, DashboardMenuItem } from 'admin-on-rest';
 import { TrackIcon } from './tracks';
 import { UserIcon } from './users';
 import { BranchIcon } from './branches';
+import { RoleIcon } from './roles';
 
 const items = [
     { name: 'tracks',title : "Tracks", icon: <TrackIcon /> },
     { name: 'users',title : "Students", icon: <UserIcon /> },
     { name: 'branches',title : "Branches", icon: <BranchIcon /> },
+    { name: 'roles',title : "Roles", icon: <RoleIcon /> },
 ];
 
 const styles = {

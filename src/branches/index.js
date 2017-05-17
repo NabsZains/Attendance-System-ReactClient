@@ -1,6 +1,8 @@
 import React from 'react';
 import { List, Edit, Create, Datagrid, ReferenceField, EmailField,BooleanInput, TextField, EditButton, DisabledInput, LongTextInput, ReferenceInput, SelectInput, SimpleForm, TextInput } from 'admin-on-rest';
 
+import LinkToQRCode from './LinkToQRCode';
+
 import Icon from 'material-ui/svg-icons/maps/add-location';
 export const BranchIcon = Icon;
 
@@ -9,6 +11,7 @@ export const BranchList = (props) => (
         <Datagrid>
             <TextField source="name" />
             <TextField source="address" />
+            <LinkToQRCode />
             <EditButton />
         </Datagrid>
     </List>

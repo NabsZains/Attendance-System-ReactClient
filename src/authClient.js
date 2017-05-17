@@ -1,10 +1,11 @@
 // in src/authClient.js
 import { AUTH_LOGIN, AUTH_ERROR, AUTH_LOGOUT, AUTH_CHECK} from 'admin-on-rest';
+import { Config } from './config';
 
 export default (type, params) => {
     if (type === AUTH_LOGIN) {
         const { username, password } = params;
-        const request = new Request('http://127.0.0.1:9991/api/token-authentication', {
+        const request = new Request(Config.apiURL + '/api/token-authentication', {
             method: 'POST',
             body: JSON.stringify({ username, password }),
             headers: new Headers({ 'Content-Type': 'application/json' }),

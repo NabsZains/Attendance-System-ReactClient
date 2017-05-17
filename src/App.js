@@ -3,6 +3,8 @@ import React from 'react';
 import { simpleRestClient, jsonServerRestClient, Admin, Resource, fetchUtils } from 'admin-on-rest';
 import { Delete } from 'admin-on-rest';
 
+import { Config } from './config';
+
 import authClient from './authClient';
 import { Dashboard } from './dashboard';
 import { RoleList, RoleEdit , RoleCreate } from './roles';
@@ -22,8 +24,7 @@ const httpClient = (url, options = {}) => {
     return fetchUtils.fetchJson(url, options);
 };
 
-const restClient = jsonServerRestClient('http://127.0.0.1:9991/api', httpClient);
-
+const restClient = jsonServerRestClient(Config.apiURL + '/api', httpClient);
 
 const App = () => (
     <Admin

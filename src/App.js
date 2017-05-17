@@ -22,7 +22,7 @@ const httpClient = (url, options = {}) => {
     return fetchUtils.fetchJson(url, options);
 };
 
-const restClient = jsonServerRestClient('http://127.0.0.1:9991/api', httpClient);
+const restClient = jsonServerRestClient('http://127.0.0.1:9990/api', httpClient);
 
 
 const App = () => (

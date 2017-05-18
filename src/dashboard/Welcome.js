@@ -11,11 +11,10 @@ export default translate(({ style, translate }) => (
     <Card style={style}>
         <CardHeader
             title="Attendance System"
-            subtitle="Attendance System"
+            subtitle="Attendance System Using React & Symfony "
             avatar={<Avatar backgroundColor="#FFEB3B" icon={<LightBulbIcon />} />}
         />
         <CardActions style={{ textAlign: 'right' }}>
-            <FlatButton label="test" icon={<HomeIcon />} href="https://marmelab.com/admin-on-rest/" />
         </CardActions>
     </Card>
 ));
